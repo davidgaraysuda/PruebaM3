@@ -1,9 +1,9 @@
-import AntCarousel from "../components/AntCarousel";
+import AntCarouselR from "../components/AntCarouselR";
 export const Home = () => {
   return(
 <>
     <h1>Home</h1>
-    <AntCarousel></AntCarousel>
+    <AntCarouselR></AntCarouselR>
 </>
 
 

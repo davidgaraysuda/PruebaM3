@@ -9,21 +9,22 @@ const contentStyle: React.CSSProperties = {
   background: '#364d79',
 };
 
-type CardType = {
-  name:string,
-  image:string,
-  description:string
-}
 
-const AntCarousel: React.FC<CardType>= ({image}:CardType) => (
+
+const AntCarousel: React.FC = () => (
   <Carousel autoplay>
     <div>
-      <h3 style={contentStyle}><img
-                alt="example"
-                src={image}
-            /></h3>
+      <h3 style={contentStyle}>1</h3>
     </div>
-   
+    <div>
+      <h3 style={contentStyle}>2</h3>
+    </div>
+    <div>
+      <h3 style={contentStyle}>3</h3>
+    </div>
+    <div>
+      <h3 style={contentStyle}>4</h3>
+    </div>
   </Carousel>
 );
 

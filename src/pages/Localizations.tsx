@@ -4,18 +4,21 @@ import React from 'react';
 import AntCard from "../components/AntCard";
 import styles from './character.module.css'
 
-interface LocalizationsData {
-    results: Array<{
-        id: number;
-        name: number;
-        type:string
-    }>;
-}
+
 
 export const Localizations: React.FC = () => {
-    const { data, error } = useSWR<LocalizationsData>(rickAndMortyLocalizations, fetchRickAndMorty, {
-        suspense: true,
+    const { data} = useSWR<LocalizationsData>(rickAndMortyLocalizations, fetchRickAndMorty, {
+        suspense: false
     });
+
+    interface LocalizationsData {
+        results: Array<{
+            id: number;
+            name: string;
+            image:string;
+            type:string
+        }>;
+    }
 
     return (
         <>
@@ -23,7 +26,7 @@ export const Localizations: React.FC = () => {
 
             <div className={styles.container}>
                 {data?.results.map((localizations) => (
-                    <AntCard  key={localizations.id} name={localizations.name}  description={localizations.type}></AntCard>
+                    <AntCard  key={localizations.id} name={localizations.name}  description={localizations.type} image={localizations.image}></AntCard>
                 ))}
             </div>
 

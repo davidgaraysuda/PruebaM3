@@ -6,11 +6,11 @@ const { Meta } = Card;
 
 type CardType = {
     name:string,
-    image:string,
+    episode:string;
     description:string
 }
 
-const AntCard:React.FC<CardType> = ({name, description}:CardType) => (
+const AntCardE:React.FC<CardType> = ({name,episode, description}:CardType) => (
     <Card
         style={{ width: 200 }}
         actions={[
@@ -21,9 +21,9 @@ const AntCard:React.FC<CardType> = ({name, description}:CardType) => (
     >
         <Meta
             title={name}
-            description={description}
+            description={episode}
         />
     </Card>
 );
 
-export default AntCard;
+export default AntCardE;

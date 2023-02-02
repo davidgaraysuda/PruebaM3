@@ -3,20 +3,24 @@ import useSWR from 'swr';
 import React from 'react';
 import AntCard from "../components/AntCard";
 import styles from './character.module.css'
+import AntAvatar from "../components/AntAvatar";
+import AntCarousel from "../components/AntCarousel";
 
-interface CharacterData {
-    results: Array<{
-        id: number;
-        name: string;
-        image?:string
-        species:string
-    }>;
-}
+
 
 export const Character: React.FC = () => {
     const { data, error } = useSWR<CharacterData>(rickAndMortyCharacter, fetchRickAndMorty, {
-        suspense: true,
+        suspense: false,
     });
+
+    interface CharacterData {
+        results: Array<{
+            id: number;
+            name: string;
+            image:string;
+            species:string
+        }>;
+    }
 
     return (
         <>
@@ -24,7 +28,7 @@ export const Character: React.FC = () => {
 
             <div className={styles.container}>
                 {data?.results.map((character) => (
-                    <AntCard  key={character.id} name={character.name} image={character.image}  description={character.species}></AntCard>
+                    <AntCarousel key={character.id} name={character.name} image={character.image}  description={character.species}></AntCarousel>
 
                 ))}
             </div>
